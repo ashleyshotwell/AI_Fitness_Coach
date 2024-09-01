@@ -15,7 +15,7 @@ def generate_plans_with_groq(api_key, age, weight, height, gender, diet_pref, fi
     client = Groq(api_key=api_key)  # Initialize Groq client with the provided API key
 
     workout_prompt = f"""
-    Generate a detailed week-long workout plan for a {age}-year-old {gender} who wants to {fitness_goal} and has {exercise_time} minutes daily for exercise.
+    Generate a detailed week-long workout plan for a {age}-year-old {gender} who wants to increase upper body width by {fitness_goal} and has {exercise_time} minutes daily for exercise. Focus on exercises that build shoulders, chest, and back muscles.
     Please format the plan as follows:
     Day 1: Workout Description
     Day 2: Workout Description
@@ -27,7 +27,7 @@ def generate_plans_with_groq(api_key, age, weight, height, gender, diet_pref, fi
     """
 
     meal_prompt = f"""
-    Generate a detailed week-long meal plan for a {diet_pref} diet to help a {age}-year-old {gender} achieve {fitness_goal}.
+    Generate a detailed week-long meal plan for a {diet_pref} diet to help a {age}-year-old {gender} increase upper body width with a focus on muscle gain.
     Please format the plan as follows:
     Day 1: Breakfast, Lunch, Dinner, Snacks
     Day 2: Breakfast, Lunch, Dinner, Snacks
@@ -49,22 +49,6 @@ def generate_plans_with_groq(api_key, age, weight, height, gender, diet_pref, fi
     )
 
     return workout_plan.choices[0].message.content, meal_plan.choices[0].message.content
-
-# Function to handle chatbot responses
-def chatbot_response(api_key, user_input):
-    client = Groq(api_key=api_key)  # Initialize Groq client with the provided API key
-
-    chat_prompt = f"""
-    User: {user_input}
-    AI: 
-    """
-
-    response = client.chat.completions.create(
-        messages=[{"role": "user", "content": chat_prompt}],
-        model="llama3-8b-8192",
-    )
-
-    return response.choices[0].message.content
 
 # Streamlit app
 def main():
@@ -115,7 +99,7 @@ def main():
     height = st.sidebar.number_input("Height (cm)", min_value=100, max_value=250, value=170)
     gender = st.sidebar.selectbox("Gender", ["Male", "Female", "Other"])
     diet_pref = st.sidebar.selectbox("Diet Preferences", ["Omnivore", "Vegetarian", "Vegan", "Keto", "Paleo"])
-    fitness_goal = st.sidebar.selectbox("Fitness Goal", ["Weight Loss", "Muscle Gain", "Maintenance", "Endurance", "Flexibility"])
+    fitness_goal = st.sidebar.selectbox("Fitness Goal", ["Increase Upper Body Width", "Weight Loss", "Muscle Gain", "Maintenance", "Endurance", "Flexibility"])
     exercise_time = st.sidebar.slider("Exercise Time (minutes per day)", min_value=10, max_value=120, value=60)
 
     if st.sidebar.button("Generate Plan"):
