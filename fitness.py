@@ -3,7 +3,7 @@ import streamlit as st
 from groq import Groq
 import pandas as pd
 
-api_key = st.secrets["fitnessapi"]
+api_key = st.secrets["fitness"]
 
 # Function to generate a personalized fitness and meal plan using Groq API
 def generate_plans_with_groq(api_key, age, weight, height, gender, diet_pref, fitness_goal, exercise_time):
