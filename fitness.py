@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-api_key = st.secrets["fitness"]
+api_key = os.getenv["fitness"]
 
 # Function to generate a personalized fitness and meal plan using Groq API
 def generate_plans_with_groq(api_key, age, weight, height, gender, diet_pref, fitness_goal, exercise_time):
