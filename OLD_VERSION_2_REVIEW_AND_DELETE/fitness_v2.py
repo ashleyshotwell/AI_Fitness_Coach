@@ -1,7 +1,9 @@
 import os
-from groq import Groq
-from dotenv import load_dotenv
 import streamlit as st
+from groq import Groq
+import pandas as pd
+from dotenv import load_dotenv
+
 
 # Load environment variables from .env file
 load_dotenv()
