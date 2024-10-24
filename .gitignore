@@ -15,6 +15,7 @@ venv.bak/
 # Secret keys and API keys
 *.key
 *.pem
+.streamlit/
 secrets.toml
 *.toml
 
