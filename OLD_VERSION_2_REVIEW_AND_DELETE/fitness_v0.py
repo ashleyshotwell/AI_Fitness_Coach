@@ -9,6 +9,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 api_key = os.getenv("fitness")
+#api_key = os.getenv("GROQ_API_KEY")
+
+#print(f"fitness API Key: {api_key}") 
+#print(f"GROQ_API_KEY: {api_key}") 
 
 # Function to generate a personalized fitness and meal plan using Groq API
 def generate_plans_with_groq(api_key, age, weight, height, gender, diet_pref, fitness_goal, exercise_time):

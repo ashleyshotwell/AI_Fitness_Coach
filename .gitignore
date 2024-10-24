@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Secret keys and API keys
+*.key
+*.pem
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*.swo
+*.orig
+*.rej
+
+# Exclude all files in the folder OLD_FILES_2_REVIEW_AND_DELETE
+OLD_FILES_2_REVIEW_AND_DELETE/
+
