@@ -18,7 +18,7 @@ venv.bak/
 .streamlit/
 secrets.toml
 *.toml
-
+.streamlit/secrets.toml
 
 # Temporary files
 *.tmp
